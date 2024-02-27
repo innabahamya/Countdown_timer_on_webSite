@@ -1,0 +1,37 @@
+.conteiner, h1 {
+    text-align: center;
+    font-size: 40px;
+    
+}
+.promotion_timer {
+    width: 30%;
+    margin: auto;
+}
+
+.promotion_timer, .title {
+    text-align: center;
+    font-size: 30px;
+}
+.promotion_timer, .timer {
+    margin-top: 60px;
+    /* padding-left: 95px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ppromotion_timer, .timer__block {
+    width: 102px;
+    height: 120px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,.25);
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+}
+.promotion_timer, .timer__block span {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 56px;
+    font-weight: 700;
+}
