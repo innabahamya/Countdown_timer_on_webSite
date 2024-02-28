@@ -3,11 +3,11 @@
 const deadline = '2024-08-15';
 
 function getTimeRemaining(endtime) {
-    const t = date.parse(endtime) - Date.parse(new date());
-    const days = Mart.floor(t / (1000 * 60 *60 *24));
-    const hours = Mart.floor((t / (1000 * 60 *60)) % 24);
-    const minutes = Mart.floor((t / 1000 / 60) % 60);
-    const seconds = Mart.floor((t / 1000) % 60);
+    const t = Date.parse(endtime) - Date.parse(new Date());
+    const days = Math.floor(t / (1000 * 60 *60 *24));
+    const hours = Math.floor((t / (1000 * 60 *60)) % 24);
+    const minutes = Math.floor((t / 1000 / 60) % 60);
+    const seconds = Math.floor((t / 1000) % 60);
 
     return {
         'total': t,
@@ -25,6 +25,11 @@ function getTimeRemaining(endtime) {
         const minutes = document.querySelector('#minutes');
         const seconds = document.querySelector('#seconds');
 
+        const timeInterval = setInterval(updateClock, 1000);
+
+        // вызов функции без моргания
+        updateClock(); 
+
         function updateClock() {
             const t = getTimeRemaining(endtime);
 
@@ -32,5 +37,11 @@ function getTimeRemaining(endtime) {
             hours.textContent = t.hours;
             minutes.textContent = t.minutes;
             seconds.textContent = t.seconds;
+
+            if (t.total<= 0) {
+                clearInterval(timeInterval);
+            }
         }
     }
+
+    setClock('.timer', deadline);
