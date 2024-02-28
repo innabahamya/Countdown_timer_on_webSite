@@ -15,7 +15,8 @@ function getTimeRemaining(endtime) {
         'hours': hours,
         'minutes': minutes,
         'seconds': seconds
-    }
+    };
+}
 
     function setClock(selector, endtime) {
         const timer = document.querySelector(selector);
@@ -23,5 +24,13 @@ function getTimeRemaining(endtime) {
         const hours = document.querySelector('#hours');
         const minutes = document.querySelector('#minutes');
         const seconds = document.querySelector('#seconds');
+
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+
+            days.textContent = t.days;
+            hours.textContent = t.hours;
+            minutes.textContent = t.minutes;
+            seconds.textContent = t.seconds;
+        }
     }
-}
